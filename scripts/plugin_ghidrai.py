@@ -93,5 +93,5 @@ def decompiles_func():
 def explain_funcs():
     funcs = get_funcs()
     message = " Explain those functions, in a clean fashion, listed separetely and readable: " + str(funcs)
-    results = subprocess.run(['python3', 'server_ghidrai.py', message], capture_output=True)
+    results = subprocess.run(['python3', 'local_ghidrai.py', message], capture_output=True)
     print(results.stdout.decode('utf-8'))
