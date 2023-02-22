@@ -19,9 +19,9 @@ To use this plugin, you will need the following:
 
 ### Installation
 
-    Clone this repository to your local machine
-    Go to your Ghidra Scripts folder and copy the python files..
-    Open the script manager and run the script.
+    - Clone this repository to your local machine.
+    - Go to your Ghidra Scripts folder and copy the python files.
+    - Open the script manager and run the script "ghidrai.py".
 
 ### Usage
 
