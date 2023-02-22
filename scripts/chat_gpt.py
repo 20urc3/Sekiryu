@@ -3,6 +3,7 @@ import os
 import sys
 
 ##openai.api_key = YOUR_API_KEY
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def chat_gpt(string):
     try:
