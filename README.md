@@ -13,7 +13,7 @@ To use this plugin, you will need the following:
 
     Ghidra 9.2 or higher (available at https://ghidra-sre.org/)
     Python 3.6 or higher
-    Python Pip for Ghidra (available at https://pypi.org/project/pip/)
+    Python Pip (available at https://pypi.org/project/pip/)
     OpenAI Python API (available at https://github.com/openai/openai-python)
     Ghidraton (available at https://github.com/mandiant/Ghidrathon)
 
