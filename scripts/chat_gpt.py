@@ -2,7 +2,7 @@ import openai
 import os
 import sys
 
-openai.api_key = "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"
+##openai.api_key = YOUR_API_KEY
 
 def chat_gpt(string):
     try:
