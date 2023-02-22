@@ -1,6 +1,9 @@
 # GhidrAI
 ## A python script that performs automatic decompilation and analysis of binary files with Ghidra and ChatGPT
 
+Are you tired of your computergoing "Beep Boop" and you don't understand it ? Let this lazy script help you while reverse engineering
+binary, cracksme challenge, or the malware your lover wrote you.
+
 ### Requirements
 
 To use this plugin, you will need the following:
