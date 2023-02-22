@@ -15,6 +15,7 @@ To use this plugin, you will need the following:
     Python 3.6 or higher
     Python Pip for Ghidra (available at https://pypi.org/project/pip/)
     OpenAI Python API (available at https://github.com/openai/openai-python)
+    Ghidraton (available at https://github.com/mandiant/Ghidrathon)
 
 ### Installation
 
@@ -40,10 +41,7 @@ This plugin was created by 2ourc3 at Bushido Security as part of a research proj
 
 ### Exemple 
 #### Initial code
-    /* lpDialogFunc parameter of CreateDialogParamA
-    */
-    undefined4 lpDialogFunc_004010a0(undefined4 param_1,int param_2,short param_3)
-    
+
     {
     byte bVar1;
     byte *pbVar2;
@@ -68,12 +66,7 @@ This plugin was created by 2ourc3 at Bushido Security as part of a research proj
             if (bVar1 != *pcVar4)
 
 #### Analysed code
-
-    /* This function is a callback function used as lpDialogFunc parameter in the CreateDialogParamA API. 
-    It is used to handle messages and events that are associated with the dialog box window. 
-    The variable names are renamed to make them more meaningful.*/
     
-    undefined4 handleDialogBoxEvents(undefined4 param_1, int message, short event)
     {
     byte currentByte;
     byte *bytePtr;
