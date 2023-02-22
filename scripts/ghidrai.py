@@ -139,7 +139,7 @@ decompiled_code = get_decomp()
 def analyzing_binary():
     f = open("analysis.c", "a")
     for text in decompiled_code:
-        text = cleaning_code
+        text = cleaning_code(text)
         message = ("Modify the following code snippet by adding comment on how it works, change variable and function name for more understeable one: " + str(text))
         results = subprocess.run(['python3', 'chat_gpt.py', message], capture_output=True)
         f.write(results.stdout.decode('utf-8'))
