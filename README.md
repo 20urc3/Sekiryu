@@ -5,7 +5,7 @@ Are you tired of your computer going "Beep Boop" and you don't understand it ? L
 binary, cracksme challenge, or the malware your lover wrote you.
 
 ### Version 
-        This plugins is only available on Linux for the moment.
+    This plugins is only available on Linux for the moment.
 
 ### Requirements
 
@@ -28,7 +28,7 @@ To use this plugin, simply open Ghidra and open the binary file you wish to anal
 
 The plugin will automatically connect to the OpenAI API to perform the decompilation and analysis. Once the process is complete, the plugin will display the decompiled code and analysis results in a new window.
 
-                To make the app work, you need to set the OpenAI API key as the OPENAI_API_KEY environment variable.
+    To make the app work, you need to set the OpenAI API key as the OPENAI_API_KEY environment variable.
 
 ### Headless mode
 
