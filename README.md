@@ -4,6 +4,9 @@
 Are you tired of your computer going "Beep Boop" and you don't understand it ? Let this lazy script help you while reverse engineering
 binary, cracksme challenge, or the malware your lover wrote you.
 
+### Version 
+        This plugins is only available on Linux for the moment.
+
 ### Requirements
 
 To use this plugin, you will need the following:
@@ -16,7 +19,7 @@ To use this plugin, you will need the following:
 ### Installation
 
     Clone this repository to your local machine
-    Go to your Ghidra folder and go copy the python files..
+    Go to your Ghidra Scripts folder and copy the python files..
     Open the script manager and run the script.
 
 ### Usage
