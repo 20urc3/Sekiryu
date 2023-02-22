@@ -28,6 +28,8 @@ To use this plugin, simply open Ghidra and open the binary file you wish to anal
 
 The plugin will automatically connect to the OpenAI API to perform the decompilation and analysis. Once the process is complete, the plugin will display the decompiled code and analysis results in a new window.
 
+                To make the app work, you need to set the OpenAI API key as the OPENAI_API_KEY environment variable.
+
 ### Headless mode
 
     ./analyzeHeadless GHIDRA_PROJECT_DIRECTORY -import YOUR_BINARY -postscript ghidrai.py
