@@ -144,7 +144,6 @@ def analyzing_binary():
         results = subprocess.run(['python3', 'chat_gpt.py', message], capture_output=True)
         f.write(results.stdout.decode('utf-8'))
     f.close()
-    print("The binary file has been analysed and the report is waiting for you. \n")
     print('''
 
      ⠀⠀⣠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡴⠒⣻⠉⠀⠀⠀⠀⠀⠀⠀⠀
@@ -162,5 +161,7 @@ def analyzing_binary():
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⢁⣠⠞⠁⠀⠀⠀⠀⠀⠉⠳⣴⠇⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⠤⠖⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠋⠀⠀⠀⠀⠀⠀
 ''')
+    print("....The binary file has been analysed and the report is waiting for you... \n")
+
 
 analyzing_binary()
