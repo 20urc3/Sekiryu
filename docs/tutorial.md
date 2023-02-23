@@ -102,6 +102,7 @@ Ghidrathon disables the built-in Jython script provider to avoid conflicts when 
 
 In order to run the GhidrAI script, you must download the .py files contains in this repository. 
 You can simply put those file in your "ghidraScripts" folder or copy them manually:
+    
     Open Ghidra
     Open Windows > Script Manager
     Create a new Python3 script
