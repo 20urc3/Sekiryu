@@ -24,4 +24,4 @@ def chat_gpt(string):
         pass
     print(answer)
 
-chat_gpt(str(sys.argv[1]))
+chat_gpt(str(sys.argv[1:0]))
