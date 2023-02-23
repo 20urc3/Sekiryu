@@ -2,7 +2,7 @@
 
 ## Ghidra
 
-Ghidra is a free, open-source software tool that is used for reverse engineering and analyzing software binaries. It was developed by the National Security Agency (NSA) and was released to the public in 2019. In this tutorial, we will go through the steps required to install Ghidra on a Windows computer.
+Ghidra is a free, open-source software tool that is used for reverse engineering and analyzing software binaries. It was developed by the National Security Agency (NSA) and was released to the public in 2019. In this tutorial, we will go through the steps required to install Ghidra 
 
     Download Ghidra:
         Go to the official Ghidra website at https://ghidra-sre.org/
@@ -30,7 +30,7 @@ Ghidra is a free, open-source software tool that is used for reverse engineering
         Choose a location for your project and give it a name.
         Click "Finish" to create the project.
 
-Congratulations! You have successfully installed Ghidra on your Windows computer and created a new project. Now you can start analyzing software binaries using Ghidra.
+Congratulations! You have successfully installed Ghidra on your computer and created a new project. Now you can start analyzing software binaries using Ghidra.
 
 ## Ghidrathon
 
