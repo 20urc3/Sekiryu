@@ -20,7 +20,8 @@ To use this plugin, you will need the following:
 ### Installation
 
     - Clone this repository to your local machine.
-    - Go to your Ghidra Scripts folder and copy the python files.
+    - Go to your Ghidra Scripts folder and copy the python file "GhidrAI.py".
+    - Go to your Ghidra working directory and copy the file "chat_gpt.py"
     - Open the script manager and run the script "ghidrai.py".
 
 ### Usage
