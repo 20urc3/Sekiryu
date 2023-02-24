@@ -1,6 +1,29 @@
 # GhidrAI
 ## A python script that performs automatic decompilation and analysis of binary files with Ghidra and ChatGPT
 
+    `""*$b..
+         ""*$o.
+             "$$o.
+               "*$$o.
+                  "$$$o.
+                    "$$$$bo...       ..o:
+                      "$$$$$$$$booocS$$$    ..    ,.
+                   ".    "*$$$$SP     V$o..o$$. .$$$b
+                    "$$o. .$$$$$o. ...A$$$$$$$$$$$$$$b
+              ""bo.   "*$$$$$$$$$$$$$$$$$$$$P*$$$$$$$$:
+                 "$$.    V$$$$$$$$$P"**""*"'   VP  * "l
+                   "$$$o.4$$$$$$$$X
+                    "*$$$$$$$$$$$$$AoA$o..oooooo..           .b
+                           .X$$$$$$$$$$$P""     ""*oo,,     ,$P
+                          $$P""V$$$$$$$:    .        ""*****"
+                        .*"    A$$$$$$$$o.4;      .
+                             .oP""   "$$$$$$b.  .$;
+                                      A$$$$$$$$$$P
+                                      "  "$$$$$P"
+                                          $$P*"
+                                         .$"
+                                         "
+                                     
 Are you tired of your computer going "Beep Boop" and you don't understand it ? Let this lazy script help you while reverse engineering
 binary, cracksme challenge, or the malware your lover wrote you.
 
