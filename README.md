@@ -1,28 +1,5 @@
 # GhidrAI
-## A python script that performs automatic decompilation and analysis of binary files with Ghidra and ChatGPT
-
-    `""*$b..
-         ""*$o.
-             "$$o.
-               "*$$o.
-                  "$$$o.
-                    "$$$$bo...       ..o:
-                      "$$$$$$$$booocS$$$    ..    ,.
-                   ".    "*$$$$SP     V$o..o$$. .$$$b
-                    "$$o. .$$$$$o. ...A$$$$$$$$$$$$$$b
-              ""bo.   "*$$$$$$$$$$$$$$$$$$$$P*$$$$$$$$:
-                 "$$.    V$$$$$$$$$P"**""*"'   VP  * "l
-                   "$$$o.4$$$$$$$$X
-                    "*$$$$$$$$$$$$$AoA$o..oooooo..           .b
-                           .X$$$$$$$$$$$P""     ""*oo,,     ,$P
-                          $$P""V$$$$$$$:    .        ""*****"
-                        .*"    A$$$$$$$$o.4;      .
-                             .oP""   "$$$$$$b.  .$;
-                                      A$$$$$$$$$$P
-                                      "  "$$$$$P"
-                                          $$P*"
-                                         .$"
-                                         "
+## A python script that performs automatic decompilation and analysis of binary files with your prefered Decompiler and ChatGPT
                                      
 Are you tired of your computer going "Beep Boop" and you don't understand it ? Let this lazy script help you while reverse engineering
 binary, cracksme challenge, or the malware your lover wrote you.
@@ -34,86 +11,31 @@ binary, cracksme challenge, or the malware your lover wrote you.
 
 To use this plugin, you will need the following:
 
-    Ghidra 9.2 or higher (available at https://ghidra-sre.org/)
     Python 3.6 or higher
     Python Pip (available at https://pypi.org/project/pip/)
     OpenAI Python API (available at https://github.com/openai/openai-python)
-    Ghidraton (available at https://github.com/mandiant/Ghidrathon)
 
 ### Installation
 
-    - Clone this repository to your local machine.
-    - Go to your Ghidra Scripts folder and copy the python file "GhidrAI.py".
-    - Go to your Ghidra working directory and copy the file "chat_gpt.py"
-    - Open the script manager and run the script "ghidrai.py".
+    pip install sekiryu
 
 ### Usage
 
-To use this plugin, simply open Ghidra and open the binary file you wish to analyze. Once the binary has been loaded, you can run the plugin.
+To use this plugin, simply run the server and open the binary file you wish to analyze in your prefered decompiler. Once the binary has been loaded, you can run the plugin.
 
-The plugin will automatically connect to the OpenAI API  to perform the decompilation and analysis. Once the process is complete, the plugin will display the decompiled code and analysis results in a new window.
+The plugin will automatically connect to the OpenAI API to perform the decompilation and analysis. Once the process is complete, the plugin will create a file with the analysed and commented pseudo-code.
 
     To make the app work, you need to set the OpenAI API key (available at https://openai.com/api/) as the OPENAI_API_KEY environment variable.
 
 ### Headless mode
 
+#### Ghidra
+
     ./analyzeHeadless GHIDRA_PROJECT_DIRECTORY -import YOUR_BINARY -postscript ghidrai.py
 
 ### Acknowledgements
 
-This plugin was created by 2ourc3 at Bushido Security as part of a research project. We would like to thank OpenAI for developing the ChatGPT language model and making it available to the research community.
-
-### Exemple 
-#### Initial code
-
-    {
-    byte bVar1;
-    byte *pbVar2;
-    uint uVar3;
-    char *pcVar4;
-    bool bVar5;
-    byte local_34 [48];
-      
-    _memset(local_34,0,0x30);
-    if (param_2 == 0x111) {
-      if (param_3 == 2) {
-        PostQuitMessage(0);
-      }
-      else {
-        if (param_3 == 0x3e9) {
-          GetDlgItemTextA(hDlg_004142a0,1000,(LPSTR)local_34,0x30);
-          pcVar4 = "cr4ckingL3ssons";
-          pbVar2 = local_34;
-          do {
-            bVar1 = *pbVar2;
-            bVar5 = bVar1 < (byte)*pcVar4;
-            if (bVar1 != *pcVar4)
-
-#### Analysed code
-    
-    {
-    byte currentByte;
-    byte *bytePtr;
-    uint comparisonResult;
-    char *serialKey;
-    bool comparisonResultBool;
-    byte localSerialKey[48];
-    
-    _memset(localSerialKey, 0, 0x30); // Initializes localSerialKey buffer with 0.
-    
-    if (message == WM_COMMAND) { // Checks if the event is WM_COMMAND.
-    if (event == 2) { // Checks if the event is a button click on the close button.
-    PostQuitMessage(0); // Sends a WM_QUIT message to the window.
-    }
-    else if (event == 0x3e9) { // Checks if the event is a button click on a button with control ID of 1001.
-    GetDlgItemTextA(hDialogBox_004142a0, 1000, (LPSTR)localSerialKey, 0x30); 
-    // Retrieves the text of the control with the given control ID.
-    serialKey = "cr4ckingL3ssons";
-    bytePtr = localSerialKey;
-    do {
-    currentByte = *bytePtr;
-    comparisonResultBool = currentByte < (byte)*serialKey;
-    if (currentByte != *serialKey)
+This plugin was created by 2ourc3 at Bushido Security as part of a research project. 
     
 #### Accuracy - What ChatGPT says
 
