@@ -5,7 +5,11 @@ Are you tired of your computer going "Beep Boop" and you don't understand it ? L
 binary, cracksme challenge, or the malware your lover wrote you.
 
 ### Version 
+This script is a BETA version. The goal is to make it compatible with IDA, Binja, R2 and GDB. Lots of improvement have to be done, but
+for the moment it is working and it's fun.
+
     This plugins is tested on Linux for the moment. However, nothing stop you to run it on Windows. 
+    Only Ghidra is supported at the moment
 
 ### Requirements
 
@@ -17,7 +21,8 @@ To use this plugin, you will need the following:
 
 ### Installation
 
-    pip download Sekiryu
+    - pip download Sekiryu
+    - Run the server on your machine, then the script ghidrai.py inside Ghidra.
 
 ### Usage
 
