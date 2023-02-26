@@ -38,6 +38,41 @@ The plugin will automatically connect to the OpenAI API to perform the decompila
 
     ./analyzeHeadless GHIDRA_PROJECT_DIRECTORY -import YOUR_BINARY -postscript ghidrai.py
 
+
+### Exemple 
+
+##### Initial code:
+
+    _memset(local_34,0,0x30);                                         
+    if (param_2 == 0x111) {                                            
+      if (param_3 == 2) {                                             
+        PostQuitMessage(0);                                        
+      else {                    
+        if (param_3 == 0x3e9) {                                      
+          GetDlgItemTextA(hDlg_004142a0,1000,(LPSTR)local_34,0x30); 
+          pcVar4 = "cr4ckingL3ssons";                                           
+          pbVar2 = local_34;                                             
+          do {                                        
+            bVar1 = *pbVar2;                                             
+            bVar5 = bVar1 < (byte)*pcVar4;                                         
+            if (bVar1 != *pcVar4)                                            
+            
+##### Analysed code:
+
+    _memset(localSerialKey, 0, 0x30); // Initializes localSerialKey buffer with 0.
+    
+    if (message == WM_COMMAND) { // Checks if the event is WM_COMMAND.
+    if (event == 2) { // Checks if the event is a button click on the close button.
+    PostQuitMessage(0); // Sends a WM_QUIT message to the window.
+    else if (event == 0x3e9) { // Checks if the event is a button click on a button with control ID of 1001.
+    GetDlgItemTextA(hDialogBox_004142a0, 1000, (LPSTR)localSerialKey, 0x30);  // Retrieves the text of the control with the given control ID.
+    serialKey = "cr4ckingL3ssons";
+    bytePtr = localSerialKey;
+    do {
+    currentByte = *bytePtr;
+    comparisonResultBool = currentByte < (byte)*serialKey;
+    if (currentByte != *serialKey)
+
 ### Acknowledgements
 
 This plugin was created by 2ourc3 at Bushido Security as part of a research project. 
