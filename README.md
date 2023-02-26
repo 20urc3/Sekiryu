@@ -56,6 +56,7 @@ This plugin was created by 2ourc3 at Bushido Security as part of a research proj
     
 # Warning
  
-    The xmlrpc.server module is not secure against maliciously constructed data. If you need to parse untrusted or unauthenticated data see XML vulnerabilities. 
+    The xmlrpc.server module is not secure against maliciously constructed data. If you need to parse 
+    untrusted or unauthenticated data see XML vulnerabilities. 
 
 For more information about Bushido Security, please visit our website: https://www.bushido-sec.com/.
