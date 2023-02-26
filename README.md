@@ -17,7 +17,7 @@ To use this plugin, you will need the following:
 
 ### Installation
 
-    pip install sekiryu
+    pip download Sekiryu
 
 ### Usage
 
