@@ -39,10 +39,11 @@ The plugin will automatically connect to the OpenAI API to perform the decompila
     ./analyzeHeadless GHIDRA_PROJECT_DIRECTORY -import YOUR_BINARY -postscript ghidrai.py
 
 
-### Exemple 
+### Example 
 
 ##### Initial code:
 
+```c
     _memset(local_34,0,0x30);                                         
     if (param_2 == 0x111) {                                            
       if (param_3 == 2) {                                             
@@ -55,10 +56,11 @@ The plugin will automatically connect to the OpenAI API to perform the decompila
           do {                                        
             bVar1 = *pbVar2;                                             
             bVar5 = bVar1 < (byte)*pcVar4;                                         
-            if (bVar1 != *pcVar4)                                            
+            if (bVar1 != *pcVar4)
+```
             
 ##### Analysed code:
-
+```c
     _memset(localSerialKey, 0, 0x30); // Initializes localSerialKey buffer with 0.
     
     if (message == WM_COMMAND) { // Checks if the event is WM_COMMAND.
@@ -72,6 +74,7 @@ The plugin will automatically connect to the OpenAI API to perform the decompila
     currentByte = *bytePtr;
     comparisonResultBool = currentByte < (byte)*serialKey;
     if (currentByte != *serialKey)
+```
 
 ### Acknowledgements
 
