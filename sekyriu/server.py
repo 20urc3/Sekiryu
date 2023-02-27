@@ -42,7 +42,7 @@ def starting():
 
 # Creating server:
 
-server = SimpleXMLRPCServer(('localhost', 47546), logRequests=True, allow_none=True)
+server = SimpleXMLRPCServer(('localhost', 13337), logRequests=True, allow_none=True)
 
  
 # Defining functions:
