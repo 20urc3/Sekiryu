@@ -119,7 +119,8 @@ def cleaning_code(text):
 def analyzing_binary():
 
     """
-    Generating commented and enhance pseudo-code txt file
+    Decompiles all functions, analyze it, generate
+    comment and rename variable, export it in a text file
     """
 
     decompiled_code = get_decomp()
