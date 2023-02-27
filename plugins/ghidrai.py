@@ -133,5 +133,5 @@ def analyzing_binary():
         proxy.analyse_GPT(str(text))
     print("Done.")
 
-proxy = ServerProxy('http://localhost:47546')
+proxy = ServerProxy('http://localhost:13337')
 analyzing_binary()
