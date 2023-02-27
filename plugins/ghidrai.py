@@ -126,8 +126,8 @@ def analyzing_binary():
     decompiled_code = get_decomp()
     print("Anlysing the functions with ChatGPT")
     for funcs in decompiled_code:
-        funcs = cleaning_code(funcs)
-        proxy.analyse_GPT(str(funcs))
+        decompiled_code = cleaning_code(funcs)
+        proxy.analyse_GPT(str(decompiled_code))
     print("Done.")
 
 proxy = ServerProxy('http://localhost:13337')
