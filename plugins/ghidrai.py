@@ -5,10 +5,6 @@
 #@menupath Tools.Ghidrai
 #@toolbar Ghidrai
 
-##    results = subprocess.run(['python3', 'chat_gpt.py', message], capture_output=True)
-##    return (results.stdout.decode('utf-8'))
-
-
 import os, xmlrpc, subprocess, re, sys
 from time import sleep
 from xmlrpc.client import ServerProxy
