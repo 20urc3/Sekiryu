@@ -28,7 +28,7 @@ To use this plugin, you will need the following:
 
 To use this plugin, simply run the server and open the binary file you wish to analyze in your prefered decompiler. Once the binary has been loaded, you can run the plugin.
 
-The plugin will automatically connect to the OpenAI API to perform the decompilation and analysis. Once the process is complete, the plugin will create a file with the analysed and commented pseudo-code.
+The plugin will automatically connect to the OpenAI API to perform the decompilation and analysis. Once the process is complete, the plugin will create a file "analyzed_PCode.txt" with the analysed and commented pseudo-code.
 
     To make the app work, you need to set the OpenAI API key (available at https://openai.com/api/) as the OPENAI_API_KEY environment variable.
 
