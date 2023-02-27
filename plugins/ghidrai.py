@@ -1,7 +1,7 @@
 #GhidrAI - An Integrated AI in Ghidra.
 #@author 2ourc3 (www.bushido-sec.com)
 #@category AI
-#@keybinding 
+#@keybinding ctrl shift a
 #@menupath Tools.Ghidrai
 #@toolbar Ghidrai
 
