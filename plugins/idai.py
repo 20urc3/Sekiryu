@@ -37,7 +37,7 @@ def analyzing_binary():
         funcs=idaapi.get_func(i)
         decompiled_code=idaapi.decompile(funcs)
         proxy.analyse_GPT(str(decompiled_code))
-    print(done)
+    print("Done")
 
 proxy = ServerProxy('http://localhost:13337')
 analyzing_binary()
