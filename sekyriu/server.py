@@ -99,7 +99,7 @@ def analyse_GPT(string):
 	except(KeyError, IndexError) as e:
 		pass
 	f = open("analyzed_PCode.txt", "a")
-	f.write(str(response))
+	f.write(str(answer))
 	f.close()
 
 
