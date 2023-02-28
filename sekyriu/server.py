@@ -82,7 +82,7 @@ def analyse_GPT(string):
 	Analyse funcs received with chatGPT
 	"""
 
-	string = "Modify the following code snippet by adding comment on how it works, change variable and function name for more understeable one and add [FUNC_START] before the snippet and newline [FUNC_END] after the snippet + string"
+	string = "Modify the following code snippet by adding comment on how it works, change variable and function name for more understeable one"
 	try:
 		response = openai.Completion.create(
             model="text-davinci-003",
@@ -96,6 +96,7 @@ def analyse_GPT(string):
 		raise print(f"Error: {str(e)}")
 	try:
 		answer = response["choices"][0]["text"]
+		answer = "[START]" + answer + "\n[END]"
 	except(KeyError, IndexError) as e:
 		pass
 	f = open("analyzed_PCode.txt", "a")
