@@ -96,10 +96,10 @@ def analyse_GPT(string):
 		raise print(f"Error: {str(e)}")
 	try:
 		answer = response["choices"][0]["text"]
-		answer = "[START]" + answer + "\n[END]"
 	except(KeyError, IndexError) as e:
 		pass
 	f = open("analyzed_PCode.txt", "a")
+	answer = "[START]" + answer + "\n[END]"
 	f.write(str(answer))
 	f.close()
 
