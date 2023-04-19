@@ -1,13 +1,11 @@
 # Sekiryu
-## A python script that performs automatic decompilation and analysis of binary files with your prefered Decompiler and ChatGPT
+## Performs automatic decompilation and analysis of binary files.
                                      
-Are you tired of your computer going "Beep Boop" and you don't understand it ? Let this lazy script help you while reverse engineering
-binary, cracksme challenge, or the malware your lover wrote you.
+Are you tired of your computer going "Beep Boop" and you don't understand it ? Let this tool help you while reverse engineering
+binary, crackme-challenge or the malware your lover wrote you.
 
 ### Version 
-This script is a BETA version. The goal is to make it compatible with IDA, Binja, R2 and GDB. Lots of improvement have to be done, but
-for the moment it is working and it's fun.
-
+This tool is a BETA version. 
     This plugins is tested on Linux for the moment. However, nothing stop you to run it on Windows. 
     Only Ghidra is supported at the moment
 
