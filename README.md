@@ -5,8 +5,7 @@ Are you tired of your computer going "Beep Boop" and you don't understand it ? L
 binary, crackme-challenge or the malware your lover wrote you.
 
 ### Version 
-This tool is a BETA version. 
-    The tool is working on Windows, MacOS & Linux.
+This tool is a BETA version. It is running on Windows, MacOS & Linux.
     
 ### Requirements
 
