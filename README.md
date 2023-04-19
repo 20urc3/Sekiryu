@@ -6,16 +6,16 @@ binary, crackme-challenge or the malware your lover wrote you.
 
 ### Version 
 This tool is a BETA version. 
-    This plugins is tested on Linux for the moment. However, nothing stop you to run it on Windows. 
-    Only Ghidra is supported at the moment
-
+    The tool is working on Windows, MacOS & Linux.
+    
 ### Requirements
 
 To use this plugin, you will need the following:
 
-    Python 3.6 or higher
+    Python >= 3.6 or higher
     Python Pip (available at https://pypi.org/project/pip/)
     OpenAI Python API (available at https://github.com/openai/openai-python)
+    Ghidra > 10.2.3
 
 ### Installation
 
