@@ -1,6 +1,0 @@
-import binaryninja
-from binaryninja import PluginCommand
-from binaryninja import lineardisassembly
-from binaryninja.function import DisassemblySettings
-from binaryninja.enums import DisassemblyOption, LinearDisassemblyLineType, InstructionTextTokenType
-
