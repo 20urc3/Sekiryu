@@ -28,7 +28,7 @@ def exec_headless(file, script):
 	# Running ghidra with specified file and script
 	try:	
 		#os.system(cmd)
-		p = subprocess.run([str(path + cmd)], shell=True, capture_output=True)
+		p = subprocess.run([str(path + cmd)], shell=True, capture_output=False)
 		os.rmdir(tmp_folder)
 
 	except KeyError as e:
@@ -41,39 +41,25 @@ def decompiling(file):
 	Execute the decompiling script
 	"""
 
-	# Setting script
-	script = "modules/scripts/ghidra_decompiler.py"
-
-	# Start the exec_headless function in a new thread
-	thread = threading.Thread(target=exec_headless, args=(file, script))
-	thread.start()
-
-	# Animate the loading while waiting for the thread to finish
-	animation = "|/-\\"
-	idx = 0
-	while thread.is_alive():
-		print("Decompiling your binary... " + animation[idx % len(animation)], end="\r")
-		idx += 1
-		time.sleep(0.1)
-	print("Binary successfully decompiled !")
-
-def vuln_hunting(file):
-	"""
-	Execute the vulnerability hunting script
-	"""
-
-	# Setting script
-	script = "modules/scripts/vuln_hunting.py"
+	try:
+		# Setting script
+		script = "modules/scripts/ghidra_decompiler.py"
 	
-	# Start the exec_headless function in a new thread
-	thread = threading.Thread(target=exec_headless, args=(file, script))
-	thread.start()
+		# Start the exec_headless function in a new thread
+		thread = threading.Thread(target=exec_headless, args=(file, script))
+		thread.start()
+	
+		# Animate the loading while waiting for the thread to finish
+		animation = "|/-\\"
+		idx = 0
+		while thread.is_alive():
+			print("Decompiling your binary... " + animation[idx % len(animation)], end="\r")
+			idx += 1
+			time.sleep(0.1)
+	
+		thread.join()
 
-	# Animate the loading while waiting for the thread to finish
-	animation = "|/-\\"
-	idx = 0
-	while thread.is_alive():
-		print("Performing a vulnerability analysis... " + animation[idx % len(animation)], end="\r")
-		idx += 1
-		time.sleep(0.1)
-	print("File successfully analysed !")
+	except Exception as e:
+		print(str(e))
+
+	print("Binary successfully decompiled !")
