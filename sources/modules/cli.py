@@ -3,6 +3,8 @@ import re, sys, threading
 
 from modules.ghidra_pilot import *
 from modules.report import *
+from modules.pcode import *
+from modules.vuln_search import *
 
 def parsing():
 	"""
@@ -48,27 +50,47 @@ def core(args):
 	"""
 	if args.file:
 		print("File used: " + str(args.file))
+		if os.path.isfile(args.file):
+			print("This is a file")
+			file_list = [str(args.file)]
+		elif os.path.isdir(args.file):
+			print("This is a directory")
+			fList = os.listdir(args.file)
+			file_list = [os.path.join(args.file, file) for file in fList]
+	
+	elif (args.file == None):
+		# No file provided, exiting
+		print("No file provided, mandatory. Now exiting")
+		raise Exception
+
+	if not os.path.exists("output"):
+		os.makedirs("output")
+
+	for file in file_list:
 
 		if args.decompile:
 			# Decompile the file provided
-			file = str(args.file)
-			thread1 = threading.Thread(target=decompiling(file))
+			thread1 = threading.Thread(target=decompiling(file,))
 			thread1.start()
 			thread1.join()
-
-		if not args.GPT:
-			# Generating Pcode 
-			simple_source(str(args.file))
-		elif args.GPT:
-			# Generationg GPT-Pcode
-			gpt_source(str(args.file))
+			
+			if not args.GPT:
+				# Generating the Pseudo-code file
+				thread2 = threading.Thread(target=simple_source(file))
+				thread2.start()
+				thread2.join()
+				
+			elif args.GPT:
+				# Generationg GPT commented Pseudo-code file
+				thread3 = threading.Thread(target=gpt_source(file))
+				thread3.start()
+				thread3.join()
 
 		if args.vul:
 			# Vulnerability detection
-			file = str(args.file)
-			thread2 = threading.Thread(target=vuln_hunting(file))
-			thread2.start()
-			thread2.join()
+			thread4 = threading.Thread(target=vuln_hunt())
+			thread4.start()
+			thread4.join()
 
 		if args.vulgpt:
 			# Vulnerability detection with ChatGPT
@@ -85,15 +107,10 @@ def core(args):
 		if args.report:
 			# Generating the report	
 			print("Generating the report.")
-			thread6 = threading.Thread(target=ploting())
+			thread6 = threading.Thread(target=report())
 			thread6.start()
 			thread6.join()
 
 		if args.compile:
 			# Attempt to compile the Pcode source file
 			print("Compiling the pseudo source code generated")
-
-	elif (args.file == None):
-		# No file provided, exiting
-		print("No file provided, mandatory. Now exiting")
-		raise Exception
