@@ -55,29 +55,29 @@ def detect_loops(input):
     loop_dict = {}
 
     # Find all if statements and extract the exit condition
-    if_matches = if_pattern.finditer(buffer)
+    if_matches = re.finditer(if_pattern, buffer)
     for match in if_matches:
         exit_cond = match.group(1)
-        line_num = buffer.count('\n', 0, match.start()) + 1
-        loop_dict[f"If statement at line {line_num}"] = {
-            "Exit Condition": exit_cond
+        line_num = buffer[:match.start()].count('\n') + 1
+        loop_dict["If statement at line {}".format(line_num)] = {
+        "Exit Condition": exit_cond
         }
 
     # Find all while loops and extract the exit condition
-    while_matches = while_pattern.finditer(buffer)
+    while_matches = re.finditer(while_pattern, buffer)
     for match in while_matches:
         exit_cond = match.group(1)
-        line_num = buffer.count('\n', 0, match.start()) + 1
-        loop_dict[f"While loop at line {line_num}"] = {
+        line_num = buffer[:match.start()].count('\n') + 1
+        loop_dict["While loop at line {}".format(line_num)] = {
             "Exit Condition": exit_cond
         }
 
     # Find all for loops and extract the exit condition
-    for_matches = for_pattern.finditer(buffer)
+    for_matches = re.finditer(for_pattern, buffer)
     for match in for_matches:
         exit_cond = match.group(1)
-        line_num = buffer.count('\n', 0, match.start()) + 1
-        loop_dict[f"For loop at line {line_num}"] = {
+        line_num = buffer[:match.start()].count('\n') + 1
+        loop_dict["For loop at line {}".format(line_num)] = {
             "Exit Condition": exit_cond
         }
 
@@ -86,19 +86,19 @@ def detect_loops(input):
 def display_dicts(*dicts):
     for d in dicts:
         if d:
-            for key, value in d.items():
+            for key, value in d.iteritems():  
                 if isinstance(value, dict):
-                    print(f"{key}:")
-                    for k, v in value.items():
-                        print(f"    {k}: {v}")
+                    print("{}:".format(key))  
+                    for k, v in value.iteritems():  
+                        print("    {}: {}".format(k, v)) 
                 else:
-                    print(f"{key}: {value}")
+                    print("{}: {}".format(key, value))  
             print("\n")
 
 def dict_to_string(input_dict):
     result = ""
-    for key, value in input_dict.items():
-        result += f"{key}: {value}\n"
+    for key, value in input_dict.iteritems(): 
+        result += "{}: {}\n".format(key, value) 
     return result
 
 def vuln_hunt():
