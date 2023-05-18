@@ -51,6 +51,20 @@ def install_ghidra():
 
     os.environ["GHIDRA_HOME_PATH"] = os.path.join(extract_dir, "ghidra_10.3_PUBLIC_20230510")
 
+def download_and_extract_gradle():
+    gradle_url = "https://downloads.gradle.org/distributions/gradle-8.1.1-bin.zip"
+    download_path = os.path.join(tempfile.gettempdir(), "gradle.zip")
+    download_file(gradle_url, download_path)
+
+    extract_dir = os.path.join(tempfile.gettempdir(), "gradle")
+    os.makedirs(extract_dir, exist_ok=True)
+    extract_zip(download_path, extract_dir)
+
+    os.environ["GRADLE_HOME"] = os.path.join(extract_dir, "gradle-8.1.1")
+
+def install_jep():
+    subprocess.run([sys.executable, "-m", "pip", "install", "jep"], check=True)
+
 def main():
     system = platform.system()
 
@@ -62,9 +76,12 @@ def main():
         print("Unsupported operating system: " + system)
         sys.exit(1)
 
+    download_and_extract_gradle()
+    install_jep()
     install_ghidra()
 
     print("Java installed at:", os.environ["JAVA_HOME"])
+    print("Gradle extracted to:", os.environ["GRADLE_HOME"])
     print("Ghidra extracted to:", os.environ["GHIDRA_HOME_PATH"])
 
 if __name__ == "__main__":
