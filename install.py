@@ -43,7 +43,6 @@ def download_and_extract_gradle():
 def main():
 
     download_and_extract_gradle()
-    install_jep()
     install_ghidra()
 
     print("Gradle extracted to:", os.environ["GRADLE_HOME"])
