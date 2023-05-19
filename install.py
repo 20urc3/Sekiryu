@@ -40,9 +40,6 @@ def download_and_extract_gradle():
 
     os.environ["GRADLE_HOME"] = os.path.join(extract_dir, "gradle-8.1.1")
 
-def install_jep():
-    subprocess.run([sys.executable, "-m", "pip", "install", "jep"], check=True)
-
 def main():
 
     download_and_extract_gradle()
