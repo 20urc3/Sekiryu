@@ -23,7 +23,7 @@ def install_ghidra():
     download_path = os.path.join(tempfile.gettempdir(), "ghidra.zip")
     download_file(ghidra_url, download_path)
 
-    extract_dir = os.path.join(tempfile.gettempdir(), "ghidra")
+    extract_dir = os.path.join("/home/", "ghidra")
     os.makedirs(extract_dir, exist_ok=True)
     extract_zip(download_path, extract_dir)
 
@@ -34,7 +34,7 @@ def download_and_extract_gradle():
     download_path = os.path.join(tempfile.gettempdir(), "gradle.zip")
     download_file(gradle_url, download_path)
 
-    extract_dir = os.path.join(tempfile.gettempdir(), "gradle")
+    extract_dir = os.path.join("/home/", "gradle")
     os.makedirs(extract_dir, exist_ok=True)
     extract_zip(download_path, extract_dir)
 
