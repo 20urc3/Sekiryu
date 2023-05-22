@@ -28,7 +28,13 @@ Before using this project, make sure you have the following software installed:
 - Ghidra: You can download Ghidra from the National Security Agency's GitHub repository @  https://github.com/NationalSecurityAgency/ghidra
 - Ghidrathon: Get the Ghidrathon plugin from the mandiant GitHub repository @ https://github.com/mandiant/Ghidrathon
 - Java: Make sure you have Java Development Kit (JDK) version 17 or higher installed. You can download it from the OpenJDK website @ https://openjdk.org/projects/jdk/17/
-    
+
+## Contributions
+
+- **Optimization**: Any kind of optimization are welcomed and will almost automically be approved and deployed every release, some nice things could be: improve parallel tasking, code cleaning and overall improvement.
+- **Malware analysis**: It's a big part, which i'm not familiar with. Any malware analyst willing to contribute can suggest idea, script, or even commit code directly in the project.
+-  **Reporting**: I ain't no data visualization engineer, if anyone is willing to improve/contribue on this part, it'll be very nice.
+
 # Warning
  
     The xmlrpc.server module is not secure against maliciously constructed data. If you need to parse 
