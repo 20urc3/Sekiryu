@@ -31,8 +31,8 @@ Before using this project, make sure you have the following software installed:
 
 # Installation
 
-- Download Sekiryu project either directly from Github either from pip using: pip install sekiryu
-- Profit
+- Install the pre-requisites mentionned above.
+- Download Sekiryu release directly from Github or use: `pip install sekiryu`.
 
 ## Contributions
 
