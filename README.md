@@ -1,6 +1,7 @@
 # Sekiryu v0.0.2
 
-This Ghidra Toolkit is a comprehensive suite of tools designed to streamline and automate various tasks associated with running Ghidra in Headless mode. This toolkit provides a wide range of scripts that can be executed both inside and alongside Ghidra, enabling users to perform tasks such as Vulnerability Hunting, Pseudo-code Commenting with ChatGPT and Reporting with Data Visualization on the analyzed codebase.
+This Ghidra Toolkit is a comprehensive suite of tools designed to streamline and automate various tasks associated with running Ghidra in Headless mode. This toolkit provides a wide range of scripts that can be executed both inside and alongside Ghidra, enabling users to perform tasks such as Vulnerability Hunting, Pseudo-code Commenting with ChatGPT and Reporting with Data Visualization on the analyzed codebase. It allows user to load and save their own script and interract with the built-in API of 
+the script.
 
 ## Key Features
 
@@ -16,12 +17,12 @@ This Ghidra Toolkit is a comprehensive suite of tools designed to streamline and
 
 - **Reporting and Data Visualization**: Generate comprehensive reports with visualizations to summarize and present the analysis results effectively. The toolkit provides data visualization capabilities to aid in identifying patterns, dependencies, and anomalies in the codebase.
 
-- **Script Management**: The toolkit allows users to load and save their own scripts, providing flexibility and customization options for their specific analysis requirements. Users can easily manage and organize their script collection.
+- **Script Management**: The toolkit allows users to load and save their own scripts, providing flexibility and customization options for their specific analysis requirements. Users can easily manage and organize their script collection. A very simple collection of API functions allow user to develop their own Ghidra script solution with Sekiryu.
 
 - **Flexible Input Options**: Users can utilize the toolkit to analyze individual files or entire folders containing multiple files. This flexibility enables efficient analysis of both small-scale and large-scale codebases.
 
   
-# Pre-requisites
+## Pre-requisites
 
 Before using this project, make sure you have the following software installed:
 
@@ -29,10 +30,26 @@ Before using this project, make sure you have the following software installed:
 - Ghidrathon: Get the Ghidrathon plugin from the mandiant GitHub repository @ https://github.com/mandiant/Ghidrathon
 - Java: Make sure you have Java Development Kit (JDK) version 17 or higher installed. You can download it from the OpenJDK website @ https://openjdk.org/projects/jdk/17/
 
-# Installation
+## Installation
 
 - Install the pre-requisites mentionned above.
 - Download Sekiryu release directly from Github or use: `pip install sekiryu`.
+
+## Usage
+In order to use the script you can simply run it against a binary with the options that you want to execute.
+- `sekiryu [-F FILE]\[OPTIONS]`
+    
+
+## API
+    
+    The "server.py" is basically built to allow scripts to interract with Ghidra each other and with the host system. 
+    An User can easily develop their own script, load and saved it in the script folder and use the known functions 
+    of the API to interract with Ghidra.    
+In order to use it the User must import xmlrpc in their script and call the function like for example: `proxy.send_data`
+#### Functions
+  - **send_data()** - Allows user to send data to the server. ("data" is a Dictionnary)
+  - **recv_data()** - Allows user to receive data from the server. ("data" is a Dictionnary)
+  - **request_GPT()** - Allows user to send string data via ChatGPT API.
 
 ## Contributions
 
