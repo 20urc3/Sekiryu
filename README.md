@@ -40,6 +40,13 @@ In order to use the script you can simply run it against a binary with the optio
 - `sekiryu [-F FILE][OPTIONS]`
 
 Please note that performing a binary analysis with **Ghidra** (or any other product) is a relatively *slow* process. Thus, expect the binary analysis to take several minutes depending on the host performance.
+If you run Sekiryu against a very large application or a large amount of binary files, be prepared to **WAIT**
+
+## Tutorial
+- Installation
+
+## Demos
+- Find demo on www.bushido-sec.com
 
 ## API
     
