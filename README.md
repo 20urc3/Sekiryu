@@ -73,7 +73,7 @@ In order to use it the User must import xmlrpc in their script and call the func
 
 # Special thanks
     A lot of people encouraged me to push further on this tool and improve it. Without you all this project wouldn't have been 
-    the same so it's time for a proper shout-out: @JeanBedoul @McProustinet @Aspeak @mrjay @Esbee|sandboxescaper @Rosen @Cyb3rops @RussianPanda 
+    the same so it's time for a proper shout-out: @JeanBedoul @McProustinet @MilCashh @Aspeak @mrjay @Esbee|sandboxescaper @Rosen @Cyb3rops @RussianPanda 
     @Dr4k0nia @Inversecos @C5pider @djinn @corelanc0d3r @ramishaath @chompie1337 
     Thanks for your feedback, support, encouragement, test, ideas, time and care.
     
