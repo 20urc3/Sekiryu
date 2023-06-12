@@ -37,8 +37,9 @@ Before using this project, make sure you have the following software installed:
 
 ## Usage
 In order to use the script you can simply run it against a binary with the options that you want to execute.
-- `sekiryu [-F FILE]\[OPTIONS]`
-    
+- `sekiryu [-F FILE][OPTIONS]`
+
+Please note that performing a binary analysis with **Ghidra** (or any other product) is a relatively *slow* process. Thus, expect the binary analysis to take several minutes depending on the host performance.
 
 ## API
     
