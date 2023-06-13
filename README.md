@@ -72,10 +72,9 @@ In order to use it the User must import xmlrpc in their script and call the func
     untrusted or unauthenticated data see XML vulnerabilities.
 
 # Special thanks
-    A lot of people encouraged me to push further on this tool and improve it. Without you all this project wouldn't have been 
-    the same so it's time for a proper shout-out: @JeanBedoul @McProustinet @MilCashh @Aspeak @mrjay 
-    @Esbee|sandboxescaper @Rosen @Cyb3rops @RussianPanda @Dr4k0nia @Inversecos @C5pider @djinn 
-    @corelanc0d3r @ramishaath @chompie1337 
+    A lot of people encouraged me to push further on this tool and improve it. Without you all this project wouldn't have been
+    the same so it's time for a proper shout-out:
+    - @JeanBedoul @McProustinet @MilCashh @Aspeak @mrjay @Esbee|sandboxescaper @Rosen @Cyb3rops @RussianPanda @Dr4k0nia
+    - @Inversecos @Vs1m @C5pider @djinn @corelanc0d3r @ramishaath @chompie1337
     Thanks for your feedback, support, encouragement, test, ideas, time and care.
-    
 For more information about Bushido Security, please visit our website: https://www.bushido-sec.com/.
