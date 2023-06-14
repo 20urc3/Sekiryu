@@ -1,4 +1,6 @@
 import re, sys, os, xmlrpc.client
+import pandas as pd
+from jinja2 import Template
 
 proxy = xmlrpc.client.ServerProxy('http://localhost:13337')
 
@@ -11,36 +13,39 @@ stack_declaration_pattern = re.compile(r"(char|unsigned char|int|unsigned int|sh
 # Regular expression pattern to find heap buffer declaration
 heap_declaration_pattern = re.compile(r"([a-zA-Z_]\w*)\s*=\s*.*(?:malloc|realloc|calloc|alloca)\s*\(\s*sizeof\s*\(\s*(.+?)\s*\)\s*\);")
 
-
 def analyze_file(input):
     # Store data in buffer
     buffer = input
-    
+
     # Find all vulnerable function occurrences in the buffer
     vulnerable_function_occurrences = {}
     for function_name in vulnerable_functions:
         pattern = r'\b{}\b'.format(re.escape(function_name))
         matches = re.finditer(pattern, buffer)
         line_numbers = [match.start() + buffer.count('\n', 0, match.start()) + 1 for match in matches]
-        vulnerable_function_occurrences[function_name] = {"Count": len(line_numbers), "Line Numbers": line_numbers}
-    
+        if line_numbers:
+            vulnerable_function_occurrences[function_name] = {"Count": len(line_numbers), "Line Numbers": line_numbers}
+
     # Find all stack buffer declarations
     stack_declarations = stack_declaration_pattern.findall(buffer)
-    
-    # Find all heap buffer declarations 
+
+    # Find all heap buffer declarations
     heap_declarations = heap_declaration_pattern.findall(buffer)
-    
-    # Store the stack declarations in a dictionary
+
+    # Store the stack declarations in a dictionary if there are any declarations
     stack_dict = {}
-    for declaration in stack_declarations:
-        stack_dict[declaration[2]] = {"Type": declaration[0], "Size": int(declaration[3]), "Arguments": declaration[1]}
-    
-    # Store the heap declarations in a dictionary
+    if stack_declarations:
+        for declaration in stack_declarations:
+            stack_dict[declaration[2]] = {"Type": declaration[0], "Size": int(declaration[3]), "Arguments": declaration[1]}
+
+    # Store the heap declarations in a dictionary if there are any declarations
     heap_dict = {}
-    for declaration in heap_declarations:
-        heap_dict[declaration[0]] = {"Size": declaration[1]}
-    
+    if heap_declarations:
+        for declaration in heap_declarations:
+            heap_dict[declaration[0]] = {"Size": declaration[1]}
+
     return vulnerable_function_occurrences, stack_dict, heap_dict
+
 
 def detect_loops(input):
     # Store data in buffer
@@ -83,18 +88,6 @@ def detect_loops(input):
 
     return loop_dict
 
-def display_dicts(*dicts):
-    for d in dicts:
-        if d:
-            for key, value in d.items():
-                if isinstance(value, dict):
-                    print(f"{key}:")
-                    for k, v in value.items():
-                        print(f"    {k}: {v}")
-                else:
-                    print(f"{key}: {value}")
-            print("\n")
-
 def dict_to_string(input_dict):
     result = ""
     for key, value in input_dict.items():
@@ -102,7 +95,6 @@ def dict_to_string(input_dict):
     return result
 
 def vuln_hunt():
-
     # Store data in buffer
     source = proxy.rec_decomp()
     buffer = dict_to_string(source)
@@ -111,6 +103,53 @@ def vuln_hunt():
     dicts1 = analyze_file(buffer)
     dicts2 = detect_loops(buffer)
 
-    print("Vulnerability Scanner result:")
-    display_dicts(dicts1[0], dicts1[1], dicts1[2])
-    display_dicts(dicts2)
+    append_dicts_to_file(dicts1[0], dicts1[1], dicts1[2], dicts2)
+
+
+def append_dicts_to_file(*dicts):
+    # Merge the dictionaries into a single dictionary
+    merged_dict = {}
+    for d in dicts:
+        merged_dict.update(d)
+
+    # Convert the merged dictionary to a DataFrame
+    df = pd.DataFrame(merged_dict)
+
+    # Define the Jinja2 template for the block
+    block_template = Template('''
+      <div class="block" onclick="toggleContent('vuln-hunt')">
+        <h2>Vulnerability Analysis <span id="vuln-hunt-expand-icon" class="expand-icon">&#x25BC;</span></h2>
+        <div id="vuln-hunt-content" class="block-content">
+          <table>
+            <thead>
+              <tr>
+                {% for col in df.columns %}
+                  <th>{{ col }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              {% for _, row in df.iterrows() %}
+                <tr>
+                  {% for value in row %}
+                    <td>{{ value }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    ''')
+
+    # Generate a unique block ID for each block
+    block_id = 'block-' + str(len(dicts))
+
+    # Generate the HTML block for the dictionaries
+    block_title = 'Vulnerability Analysis'
+    html_block = block_template.render(df=df)
+
+    # Append the HTML block to the existing file
+    with open('report.html', 'a') as f:
+        f.write(html_block)
