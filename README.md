@@ -7,7 +7,7 @@ the script.
 
 - **Headless Mode Automation**: The toolkit enables users to seamlessly launch and run Ghidra in Headless mode, allowing for automated and batch processing of code analysis tasks.
 
-- **Script Repository**: The toolkit includes a repository of pre-built scripts that can be executed within Ghidra. These scripts cover a variety of functionalities, empowering users to perform diverse analysis and manipulation tasks.
+- **Script Repository/Management**: The toolkit includes a repository of pre-built scripts that can be executed within Ghidra. These scripts cover a variety of functionalities, empowering users to perform diverse analysis and manipulation tasks. It allows users to load and save their own scripts, providing flexibility and customization options for their specific analysis requirements. Users can easily manage and organize their script collection.
 
 - **Vulnerability Hunting**: Leverage the toolkit's scripts to identify potential vulnerabilities within the codebase being analyzed. This helps security researchers and developers uncover security weaknesses and proactively address them.
 
@@ -16,8 +16,6 @@ the script.
 - **Pseudo-code Commenting with ChatGPT**: Enhance the readability and understanding of the codebase by utilizing ChatGPT to generate human-like comments for pseudo-code snippets. This feature assists in documenting and explaining the code logic.
 
 - **Reporting and Data Visualization**: Generate comprehensive reports with visualizations to summarize and present the analysis results effectively. The toolkit provides data visualization capabilities to aid in identifying patterns, dependencies, and anomalies in the codebase.
-
-- **Script Management**: The toolkit allows users to load and save their own scripts, providing flexibility and customization options for their specific analysis requirements. Users can easily manage and organize their script collection. A very simple collection of API functions allow user to develop their own Ghidra script solution with Sekiryu.
 
 - **Flexible Input Options**: Users can utilize the toolkit to analyze individual files or entire folders containing multiple files. This flexibility enables efficient analysis of both small-scale and large-scale codebases.
 
