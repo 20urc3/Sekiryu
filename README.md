@@ -86,7 +86,7 @@ The usage is pretty straight forward, you can create your own script then just a
 def yourfunction(file):
 	try:
 		# Setting script
-		script = "modules/scripts/ghidra_decompiler.py"
+		script = "modules/scripts/your_script.py"
 	
 		# Start the exec_headless function in a new thread
 		thread = threading.Thread(target=exec_headless, args=(file, script))
