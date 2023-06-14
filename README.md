@@ -59,6 +59,8 @@ In order to use it the User must import xmlrpc in their script and call the func
   - **recv_data()** - Allows user to receive data from the server. ("data" is a Dictionnary)
   - **request_GPT()** - Allows user to send string data via ChatGPT API.
 
+### Use your own scripts
+Scripts are saved in the folder /modules/scripts/ you can simply copy your script there.
 In the `ghidra_pilot.py` file you can find the following function which is responsible to run a headless ghidra script:
 
 ```python
