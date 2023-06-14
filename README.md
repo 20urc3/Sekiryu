@@ -59,6 +59,29 @@ In order to use it the User must import xmlrpc in their script and call the func
   - **recv_data()** - Allows user to receive data from the server. ("data" is a Dictionnary)
   - **request_GPT()** - Allows user to send string data via ChatGPT API.
 
+In the `ghidra_pilot.py` file you can find the following function which is responsible to run a headless ghidra script:
+
+```python
+def exec_headless(file, script):
+	"""
+	Execute the headless analysis of ghidra
+	"""
+	path = ghidra_path + 'analyzeHeadless'
+	# Setting variables
+	tmp_folder = "/tmp/out"
+	os.mkdir(tmp_folder)
+	cmd = ' ' + tmp_folder + ' TMP_DIR -import'+ ' '+ file + ' '+ "-postscript "+ script +" -deleteProject"	
+
+	# Running ghidra with specified file and script
+	try:	
+		p = subprocess.run([str(path + cmd)], shell=True, capture_output=True)
+		os.rmdir(tmp_folder)
+
+	except KeyError as e:
+		print(e)
+		os.rmdir(tmp_folder)
+```
+ 
 ## Contributions
 
 - **Optimization**: Any kind of optimization are welcomed and will almost automically be approved and deployed every release, some nice things could be: improve parallel tasking, code cleaning and overall improvement.
