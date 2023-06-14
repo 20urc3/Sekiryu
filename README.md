@@ -81,7 +81,21 @@ def exec_headless(file, script):
 		print(e)
 		os.rmdir(tmp_folder)
 ```
- 
+The usage is pretty straight forward, you can create your own script then just add a function in the `ghidra_pilot.py` such as:
+```python
+def yourfunction(file):
+	try:
+		# Setting script
+		script = "modules/scripts/ghidra_decompiler.py"
+	
+		# Start the exec_headless function in a new thread
+		thread = threading.Thread(target=exec_headless, args=(file, script))
+		thread.start()
+		thread.join()
+	except Exception as e:
+		print(str(e))
+```
+
 ## Contributions
 
 - **Optimization**: Any kind of optimization are welcomed and will almost automically be approved and deployed every release, some nice things could be: improve parallel tasking, code cleaning and overall improvement.
