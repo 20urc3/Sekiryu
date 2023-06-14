@@ -100,7 +100,8 @@ def yourfunction(file):
 
 ## Contributions
 
-- **Optimization**: Any kind of optimization are welcomed and will almost automically be approved and deployed every release, some nice things could be: improve parallel tasking, code cleaning and overall improvement.
+- **Scripts/SCRIPTS/SCRIIIIIPTS**: This tool is designed to be a toolkit allowing user to save and run their own script easily, obviously if you can contribue in any sort of script (anything that is interesting will be approved !)
+-  **Optimization**: Any kind of optimization are welcomed and will almost automically be approved and deployed every release, some nice things could be: improve parallel tasking, code cleaning and overall improvement.
 - **Malware analysis**: It's a big part, which i'm not familiar with. Any malware analyst willing to contribute can suggest idea, script, or even commit code directly in the project.
 -  **Reporting**: I ain't no data visualization engineer, if anyone is willing to improve/contribue on this part, it'll be very nice.
 -  **Installation/Setup**: It would be really nice to allow an user to simply download the pip package and run a setup that does everything, install ghidra, all dependencies, Ghidrathon, etc. Any help appreciated.
