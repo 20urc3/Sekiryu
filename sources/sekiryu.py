@@ -1,28 +1,18 @@
 #!/usr/bin/env python
+import threading
 
 from modules.cli import *
-from modules.ghidra_pilot import *
-from modules.server import *
 
 def main():
 	try:		
-		# Start Server
-		server_thread = XMLServerThread()
-		server_thread.start()
 
-		try:
-			# Parse command + options 
-			core(parsing())
-		except Exception as e:
-			pass
-
-		# Exiting server
-		server_thread.stop()
-		server_thread.join()	
+		# Parse command + options
+		main_thread = threading.Thread(target=core(parsing()))
+		main_thread.start()
+		main_thread.join()
 
 	except KeyboardInterrupt:
 		print('Keyboard Interrupt: Exiting.')
-
 
 if __name__ == '__main__':
 	main()
