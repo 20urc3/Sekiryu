@@ -27,8 +27,7 @@ def exec_headless(file, script):
 
 	# Running ghidra with specified file and script
 	try:	
-		#os.system(cmd)
-		p = subprocess.run([str(path + cmd)], shell=True, capture_output=False)
+		p = subprocess.run([str(path + cmd)], shell=True, capture_output=True)
 		os.rmdir(tmp_folder)
 
 	except KeyError as e:
@@ -63,3 +62,29 @@ def decompiling(file):
 		print(str(e))
 
 	print("Binary successfully decompiled !")
+
+def binexporting(file):
+	"""
+	Execute the decompiling script
+	"""
+
+	try:
+		# Setting script
+		script = "modules/scripts/bindiff_export.py"
+	
+		# Start the exec_headless function in a new thread
+		thread = threading.Thread(target=exec_headless, args=(file, script))
+		thread.start()
+	
+		# Animate the loading while waiting for the thread to finish
+		animation = "|/-\\"
+		idx = 0
+		while thread.is_alive():
+			print("BinExporting the binary..." + animation[idx % len(animation)], end="\r")
+			idx += 1
+			time.sleep(0.1)
+		thread.join()
+
+	except Exception as e:
+		print(str(e))
+	print("Successfully exported the binary with BinExport!")
