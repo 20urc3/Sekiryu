@@ -5,20 +5,8 @@ from typing import Optional, Dict
 import numpy as np
 import pandas as pd
 import dataplane as dp
-import openai, threading, readline, os
+import threading, readline, os
 
-def get_openai_api_key():
-    openai.api_key = os.environ.get('OPENAI_API_KEY')
-    if openai.api_key:
-        return openai.api_key
-    else:
-        openai.api_key = input("Please enter your OpenAI API key: ")
-        # Save the API key permanently in the system
-        with open(os.path.expanduser("~/.bashrc"), "a") as f:
-            f.write(f'\nexport OPENAI_API_KEY="{openai.api_key}"')
-        os.environ['OPENAI_API_KEY'] = openai.api_key
-
-get_openai_api_key()
 
 class XMLServerThread(threading.Thread):
 	def __init__(self, host='localhost', port=13337):
@@ -29,13 +17,28 @@ class XMLServerThread(threading.Thread):
 		self.decompiled_code = {}
 		self.decompiled_block_infos = {}
 
+		self.data = {}
+
 		# Register functions with the server instance:
-		self.server.register_function(self.request_GPT)
-		self.server.register_function(self.analyse_GPT)
 		self.server.register_function(self.rec_decomp)
 		self.server.register_function(self.send_decomp)
 		self.server.register_function(self.rec_block_infos)
 		self.server.register_function(self.send_block_infos)
+		self.server.register_function(self.send_data)
+		self.server.register_function(self.recv_data)
+		self.server.register_function(self.request_GPT)
+
+	def send_data(self, input):
+		"""
+		Receive general data from User
+		"""
+		self.data = input
+
+	def recv_data(self):
+		"""
+		Send general data to User
+		"""
+		return self.data
 
 	def run(self):
 		# Start server
@@ -71,34 +74,22 @@ class XMLServerThread(threading.Thread):
 		"""
 		return self.decompiled_block_infos
 
-
 	def request_GPT(self, string):
 		"""
 		Generic request method to ChatGPT
 		"""
-		try:
-			response = openai.Completion.create(
-				model="text-davinci-003",
-				prompt=string,
-				max_tokens=4000,
-				temperature=0.6,
-				frequency_penalty=1,
-				presence_penalty=1
-				)
-		except openai.OpenAIError as e:
-			raise print(f"Error: {str(e)}")
+		get_openai_api_key()
+
+		response = openai.Completion.create(
+			model="text-davinci-003",
+			prompt=string,
+			max_tokens=4000,
+			temperature=0.6,
+			frequency_penalty=1,
+			presence_penalty=1
+			)
 		try:
 			answer = response["choices"][0]["text"]
+			return(answer)
 		except(KeyError, IndexError) as e:
 			pass
-		return(answer)
-
-
-	def analyse_GPT(self, string):
-		"""
-		Analyse funcs received with chatGPT
-		"""
-
-		# Specify request for commenting / analyse
-		string = "Modify the following code snippet by adding comment on how it works and change variable and function name for more understeable one"
-		self.request_GPT(string)
