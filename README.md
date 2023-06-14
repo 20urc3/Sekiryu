@@ -98,7 +98,10 @@ def yourfunction(file):
 	except Exception as e:
 		print(str(e))
 ```
-
+The file `cli.py` is responsible for the command-line-interface and allows you to add argument and command associated like this:
+```python
+analysis_parser.add_argument('[-ShortCMD]', '[--LongCMD]', help="Your Help Message", action="store_true")
+```
 ## Contributions
 
 - **Scripts/SCRIPTS/SCRIIIIIPTS**: This tool is designed to be a toolkit allowing user to save and run their own script easily, obviously if you can contribue in any sort of script (anything that is interesting will be approved !)
