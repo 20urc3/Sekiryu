@@ -13,12 +13,10 @@ the script.
 
 ### Available scripts
 
-- **Vulnerability Hunting**: Leverage the toolkit's scripts to identify potential vulnerabilities within the codebase being analyzed. This helps security researchers and developers uncover security weaknesses and proactively address them.
-
+- **Vulnerability Hunting with pattern recognition**: Leverage the toolkit's scripts to identify potential vulnerabilities within the codebase being analyzed. This helps security researchers and developers uncover security weaknesses and proactively address them.
+- **Vulnerability Hunting with SemGrep**: Thanks to the security Researcher 0xdea and the rule-set they created, we can use simple rules and SemGrep to detect vulnerabilities in C/C++ pseudo code (their github: https://github.com/0xdea/semgrep-rules)
 - **Automatic Pseudo Code Generating**: Automatically generate pseudo code within Ghidra's Headless mode. This feature assists in understanding and documenting the code logic without manual intervention.
-
 - **Pseudo-code Commenting with ChatGPT**: Enhance the readability and understanding of the codebase by utilizing ChatGPT to generate human-like comments for pseudo-code snippets. This feature assists in documenting and explaining the code logic.
-
 - **Reporting and Data Visualization**: Generate comprehensive reports with visualizations to summarize and present the analysis results effectively. The toolkit provides data visualization capabilities to aid in identifying patterns, dependencies, and anomalies in the codebase.
 
 
