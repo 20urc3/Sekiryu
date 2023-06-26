@@ -2,6 +2,7 @@
 import threading
 
 from modules.cli import *
+color_red = '\033[91m'
 
 def main():
 	try:		
@@ -12,7 +13,7 @@ def main():
 		main_thread.join()
 
 	except KeyboardInterrupt:
-		print('Keyboard Interrupt: Exiting.')
+		print(color_red + 'Keyboard Interrupt: Exiting.' + color_reset)
 
 if __name__ == '__main__':
 	main()
