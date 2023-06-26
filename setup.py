@@ -15,12 +15,10 @@ setup(
         'openai==0.26.5',
         'pandas==1.5.3',
         'setuptools==59.6.0'
-    ]'''
-    ,
+    ],
     entry_points={
         'console_scripts': [
             'sekiryu = sources.sekiryu:main'
         ]
     }
-'''
 )
