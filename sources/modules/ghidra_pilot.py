@@ -27,7 +27,7 @@ def exec_headless(file, script):
 
 	# Running ghidra with specified file and script
 	try:	
-		p = subprocess.run([str(path + cmd)], shell=True, capture_output=False)
+		p = subprocess.run([str(path + cmd)], shell=True, capture_output=True)
 		os.rmdir(tmp_folder)
 
 	except KeyError as e:
