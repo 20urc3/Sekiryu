@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import threading
 
-from modules.cli import *
+from .modules.cli import *
 color_red = '\033[91m'
 
 def main():
