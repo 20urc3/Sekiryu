@@ -6,6 +6,7 @@ from .report import *
 from .pcode import *
 from .vuln_search import *
 from .server import *
+from .sgrep import *
 
 def open_html_file(file_path):
     webbrowser.open(file_path)
@@ -36,6 +37,7 @@ def parsing():
 	analysis_parser.add_argument('-m','--mal', help='Malware Analysis', action="store_true")
 	analysis_parser.add_argument('-mgpt','--malgpt', help='Malware Analysis via ChatGPT', action="store_true")
 	analysis_parser.add_argument('-be', '--binEx', help="Exporting with BinDiff", action="store_true")
+	analysis_parser.add_argument('-sg', '--smgrep', help="Static analysis with SemGrep", action="store_true")
 
 	#Initiate source generating parser
 	compiling_parser = parser.add_argument_group("Source generating options")
@@ -105,12 +107,6 @@ def core(args):
 				thread9.start()
 				thread9.join()
 
-				if args.vul:
-					# Vulnerability detection
-					thread4 = threading.Thread(target=vuln_hunt())
-					thread4.start()
-					thread4.join()
-
 				if args.vulgpt:
 					# Vulnerability detection with ChatGPT
 					thread5 = threading.Thread(target=vuln_gpt(file))
@@ -133,10 +129,20 @@ def core(args):
 					thread8.start()
 					thread8.join()
 
+				if args.smgrep:
+					# Static analysis with SemGrep
+					thread11 = threading.Thread(target=find_vulnerabilities(file))
+					thread11.start()
+					thread11.join()
 
-				# Open Report
-				html_file_path = str(os.getcwd())+"/report.html"
-				open_html_file(html_file_path)	
+				if args.vul:
+					# Vulnerability detection
+					thread4 = threading.Thread(target=vuln_hunt())
+					thread4.start()
+					thread4.join()
+					# Open Report
+					html_file_path = str(os.getcwd())+"/report.html"
+					open_html_file(html_file_path)
 				
 			# Exiting server
 			server_thread.stop()
