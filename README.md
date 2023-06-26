@@ -30,7 +30,8 @@ Before using this project, make sure you have the following software installed:
 
 - Ghidra: You can download Ghidra from the National Security Agency's GitHub repository @  https://github.com/NationalSecurityAgency/ghidra
 - Java: Make sure you have Java Development Kit (JDK) version 17 or higher installed. You can download it from the OpenJDK website @ https://openjdk.org/projects/jdk/17/
-- BinExport (OPTIONNAL): Follow the instruction for installing the Ghidra Extension https://github.com/google/binexport
+- BinExport (OPTIONNAL) Follow the instruction for installing the Ghidra Extension https://github.com/google/binexport
+- SemGrep (OPTIONNAL) Follow the instruction detailed https://semgrep.dev/docs/getting-started/
 
 ## Installation
 
