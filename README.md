@@ -25,7 +25,6 @@ the script.
 Before using this project, make sure you have the following software installed:
 
 - Ghidra: You can download Ghidra from the National Security Agency's GitHub repository @  https://github.com/NationalSecurityAgency/ghidra
-- Ghidrathon: Get the Ghidrathon plugin from the mandiant GitHub repository @ https://github.com/mandiant/Ghidrathon
 - Java: Make sure you have Java Development Kit (JDK) version 17 or higher installed. You can download it from the OpenJDK website @ https://openjdk.org/projects/jdk/17/
 - BinExport (OPTIONNAL): Follow the instruction for installing the Ghidra Extension https://github.com/google/binexport
 
