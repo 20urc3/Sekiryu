@@ -2,7 +2,7 @@ import argparse, os, pathlib, time, webbrowser
 import re, sys, threading
 
 from .ghidra_pilot import *
-from ..report import *
+from .report import *
 from .pcode import *
 from .vuln_search import *
 from .server import *
