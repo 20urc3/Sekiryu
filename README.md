@@ -9,6 +9,10 @@ the script.
 
 - **Script Repository/Management**: The toolkit includes a repository of pre-built scripts that can be executed within Ghidra. These scripts cover a variety of functionalities, empowering users to perform diverse analysis and manipulation tasks. It allows users to load and save their own scripts, providing flexibility and customization options for their specific analysis requirements. Users can easily manage and organize their script collection.
 
+- **Flexible Input Options**: Users can utilize the toolkit to analyze individual files or entire folders containing multiple files. This flexibility enables efficient analysis of both small-scale and large-scale codebases.
+
+### Available scripts
+
 - **Vulnerability Hunting**: Leverage the toolkit's scripts to identify potential vulnerabilities within the codebase being analyzed. This helps security researchers and developers uncover security weaknesses and proactively address them.
 
 - **Automatic Pseudo Code Generating**: Automatically generate pseudo code within Ghidra's Headless mode. This feature assists in understanding and documenting the code logic without manual intervention.
@@ -17,7 +21,7 @@ the script.
 
 - **Reporting and Data Visualization**: Generate comprehensive reports with visualizations to summarize and present the analysis results effectively. The toolkit provides data visualization capabilities to aid in identifying patterns, dependencies, and anomalies in the codebase.
 
-- **Flexible Input Options**: Users can utilize the toolkit to analyze individual files or entire folders containing multiple files. This flexibility enables efficient analysis of both small-scale and large-scale codebases.
+
 
   
 ## Pre-requisites
