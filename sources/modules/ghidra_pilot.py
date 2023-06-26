@@ -27,7 +27,7 @@ def exec_headless(file, script):
 
 	# Running ghidra with specified file and script
 	try:	
-		p = subprocess.run([str(path + cmd)], shell=True, capture_output=True)
+		p = subprocess.run([str(path + cmd)], shell=True, capture_output=False)
 		os.rmdir(tmp_folder)
 
 	except KeyError as e:
@@ -42,7 +42,10 @@ def decompiling(file):
 
 	try:
 		# Setting script
-		script = "modules/scripts/ghidra_decompiler.py"
+		current_script_path = os.path.abspath(__file__)
+		current_script_dir = os.path.dirname(current_script_path)
+		script = os.path.join(current_script_dir, 'scripts', 'ghidra_decompiler.py')
+
 	
 		# Start the exec_headless function in a new thread
 		thread = threading.Thread(target=exec_headless, args=(file, script))
@@ -70,7 +73,9 @@ def binexporting(file):
 
 	try:
 		# Setting script
-		script = "modules/scripts/bindiff_export.py"
+		current_script_path = os.path.abspath(__file__)
+		current_script_dir = os.path.dirname(current_script_path)
+		script = os.path.join(current_script_dir, 'scripts', 'bindiff_export.py')
 	
 		# Start the exec_headless function in a new thread
 		thread = threading.Thread(target=exec_headless, args=(file, script))
