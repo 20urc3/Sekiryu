@@ -8,6 +8,9 @@ setup(
     author_email='20urc3@bushido-sec.com',
     url='https://github.com/20urc3/Sekiryu',
     packages=find_packages(),
+    package_data={
+        'sources.modules.rules_sgrep': ['*'],  # specify the files or directories to include
+    },
     install_requires=[
         'dataplane==0.0.20',
         'Jinja2==3.1.2',
