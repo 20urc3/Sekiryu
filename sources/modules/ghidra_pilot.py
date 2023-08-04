@@ -2,15 +2,17 @@ import os, subprocess, threading, time, readline
 
 def get_ghidra_headless_path():
 	ghidra_headless = os.environ.get('GHIDRA_HEADLESS_PATH')
-	if ghidra_headless:
-		return ghidra_headless
-	else:
+	if not ghidra_headless:
 		ghidra_headless = input("Please enter the path to Ghidra Headless folder: ")
-		# Save the PATH permanently in the system
 		with open(os.path.expanduser("~/.bashrc"), "a") as f:
 			f.write(f'\nexport GHIDRA_HEADLESS_PATH="{ghidra_headless}"')
 		os.environ['GHIDRA_HEADLESS_PATH'] = ghidra_headless
-		return ghidra_headless
+	
+	# Ensure the path ends with a slash
+	if not ghidra_headless.endswith('/'):
+		ghidra_headless += '/'
+		
+	return ghidra_headless
 
 # Setting path
 ghidra_path = get_ghidra_headless_path()
