@@ -1,3 +1,5 @@
+**This project was really fun and my first "big" project! Better, smarter, stronger solutions now exist: https://github.com/LaurieWired/GhidraMCP**
+
 # Sekiryu v0.0.2
 
 This Ghidra Toolkit is a comprehensive suite of tools designed to streamline and automate various tasks associated with running Ghidra in Headless mode. This toolkit provides a wide range of scripts that can be executed both inside and alongside Ghidra, enabling users to perform tasks such as Vulnerability Hunting, Pseudo-code Commenting with ChatGPT and Reporting with Data Visualization on the analyzed codebase. It allows user to load and save their own script and interract with the built-in API of 
